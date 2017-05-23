@@ -11,5 +11,11 @@
 
     <artifactId>news-crawler-infrastructure</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>rome</groupId>
+            <artifactId>rome</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 </project>
