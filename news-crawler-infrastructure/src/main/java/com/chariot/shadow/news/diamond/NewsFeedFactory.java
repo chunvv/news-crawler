@@ -4,6 +4,8 @@ import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.feed.synd.SyndFeedImpl;
 
 /**
+ * Cloning a original feed to a new feed by getting some important fields
+ * <p>
  * Created by Trung Vu on 2017/05/23.
  */
 public class NewsFeedFactory {

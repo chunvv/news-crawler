@@ -8,7 +8,7 @@ import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 import lombok.AllArgsConstructor;
-import lombok.Value;
+import lombok.Getter;
 
 import java.io.IOException;
 import java.util.Date;
@@ -17,8 +17,8 @@ import java.util.List;
 /**
  * Created by Trung Vu on 2017/05/23.
  */
-@Value
 @AllArgsConstructor
+@Getter
 public abstract class FeedNewsSourceRetriever implements NewsSourceRetriever {
 
     protected UrlGenerator generator;

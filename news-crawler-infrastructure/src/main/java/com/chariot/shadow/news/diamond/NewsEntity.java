@@ -26,11 +26,10 @@ public class NewsEntity {
     }
 
     public String generateUniqueFileName() throws NewsRetrieverException {
-        String guId = Optional.
-                ofNullable(getEntry().
-                        getUri()).
-                orElseThrow(() ->
-                        new NewsRetrieverException("No guId element in:" + getEntry().getTitle()));
+        String guId =
+                Optional.
+                        ofNullable(getEntry().getUri()).
+                        orElseThrow(() -> new NewsRetrieverException("No guId element in:" + getEntry().getTitle()));
 
         Matcher matcher = UNIQUE_PATTERN.matcher(guId);
         if (!matcher.find())
@@ -39,7 +38,7 @@ public class NewsEntity {
         return FILENAME_PREFIX + matcher.group();
     }
 
-    private SyndEntry getEntry() {
+    public SyndEntry getEntry() {
         return (SyndEntry) feed.getEntries().get(0);
     }
 }
