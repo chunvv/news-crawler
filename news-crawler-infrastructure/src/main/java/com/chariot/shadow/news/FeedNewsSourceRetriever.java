@@ -1,6 +1,7 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.UrlGenerator;
+import com.chariot.shadow.news.diamond.NewsEntity;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
@@ -9,11 +10,9 @@ import com.sun.syndication.io.XmlReader;
 import lombok.AllArgsConstructor;
 import lombok.Value;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Trung Vu on 2017/05/23.
@@ -27,7 +26,7 @@ public abstract class FeedNewsSourceRetriever implements NewsSourceRetriever {
 
     @Override
     @SuppressWarnings("unchecked")
-    public Set<File> retrieve() throws IOException, FeedException {
+    public List<NewsEntity> retrieve() throws IOException, FeedException {
         SyndFeed feed = build();
         excludeCandidates(feed.getEntries());
         return process(feed);

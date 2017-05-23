@@ -1,6 +1,5 @@
 package com.chariot.shadow.news;
 
-import java.io.File;
 import java.util.Date;
 
 /**
@@ -11,6 +10,4 @@ public interface NewsRequester {
     Date from();
 
     Date to();
-
-    File workingDirectory();
 }
