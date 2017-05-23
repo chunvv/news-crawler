@@ -12,9 +12,9 @@ import java.util.Set;
  * Created by Trung Vu on 2017/05/23.
  */
 @Value
-public class DiamondNewsRetriever extends FeedNewsSourceRetriever {
+public class DiamondNewsInfrastructure extends FeedNewsSourceRetriever {
 
-    public DiamondNewsRetriever(NewsRequester newsRequester) {
+    public DiamondNewsInfrastructure(NewsRequester newsRequester) {
         super(new DiamondNewsUrlGenerator(), newsRequester);
     }
 
