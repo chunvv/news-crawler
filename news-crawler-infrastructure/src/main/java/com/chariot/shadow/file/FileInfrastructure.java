@@ -1,6 +1,6 @@
 package com.chariot.shadow.file;
 
-import com.chariot.shadow.news.NewsRetrieverException;
+import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.chariot.shadow.news.diamond.NewsEntity;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedOutput;

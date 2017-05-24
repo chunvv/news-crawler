@@ -1,6 +1,6 @@
 package com.chariot.shadow.news.diamond;
 
-import com.chariot.shadow.news.NewsRetrieverException;
+import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import mockit.Expectations;

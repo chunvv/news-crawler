@@ -19,15 +19,21 @@ import java.util.stream.Collectors;
 public class NewsRepository {
 
     @Inject
-    private DiamondNewsInfrastructure newsInfrastructure;
+    private DiamondNewsInfrastructure diamondNewsInfrastructure;
     @Inject
     private FileInfrastructure fileInfrastructure;
+    @Inject
+    private NewsInfrastructure newsInfrastructure;
     @Inject
     private NewsMapper mapper;
 
     public List<News> retrieve(File workingDirectory) throws IOException, FeedException {
-        List<NewsEntity> newsEntities = newsInfrastructure.retrieve();
+        List<NewsEntity> newsEntities = diamondNewsInfrastructure.retrieve();
         newsEntities.forEach(entry -> fileInfrastructure.write(entry, workingDirectory));
         return newsEntities.stream().map(entity -> mapper.map(entity)).collect(Collectors.toList());
+    }
+
+    public void store(List<News> newsList) {
+        newsList.forEach(entity -> newsInfrastructure.insert(entity));
     }
 }

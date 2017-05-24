@@ -1,7 +1,7 @@
 package com.chariot.shadow.news.diamond;
 
-import com.chariot.shadow.news.FeedNewsSourceRetriever;
-import com.chariot.shadow.news.NewsRequester;
+import com.chariot.shadow.news.common.FeedNewsSourceRetriever;
+import com.chariot.shadow.news.common.NewsRequester;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 

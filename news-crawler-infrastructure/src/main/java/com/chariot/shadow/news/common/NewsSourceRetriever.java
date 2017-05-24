@@ -1,4 +1,4 @@
-package com.chariot.shadow.news;
+package com.chariot.shadow.news.common;
 
 import com.chariot.shadow.news.diamond.NewsEntity;
 import com.sun.syndication.feed.synd.SyndEntry;

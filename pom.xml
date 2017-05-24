@@ -12,6 +12,7 @@
         <module>news-crawler-domain</module>
         <module>news-crawler-repository</module>
         <module>news-crawler-infrastructure</module>
+        <module>news-crawler-application</module>
     </modules>
 
     <dependencies>

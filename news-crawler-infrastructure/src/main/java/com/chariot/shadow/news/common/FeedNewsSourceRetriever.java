@@ -1,4 +1,4 @@
-package com.chariot.shadow.news;
+package com.chariot.shadow.news.common;
 
 import com.chariot.shadow.UrlGenerator;
 import com.chariot.shadow.news.diamond.NewsEntity;

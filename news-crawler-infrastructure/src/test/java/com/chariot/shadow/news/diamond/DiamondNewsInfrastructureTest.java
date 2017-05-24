@@ -1,7 +1,7 @@
 package com.chariot.shadow.news.diamond;
 
 import com.chariot.shadow.UrlGenerator;
-import com.chariot.shadow.news.NewsRequester;
+import com.chariot.shadow.news.common.NewsRequester;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndFeed;
@@ -9,14 +9,9 @@ import com.sun.syndication.feed.synd.SyndFeedImpl;
 import mockit.Expectations;
 import mockit.Injectable;
 import mockit.Tested;
-import org.hamcrest.core.Is;
-import org.junit.Assert;
 import org.junit.Test;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;

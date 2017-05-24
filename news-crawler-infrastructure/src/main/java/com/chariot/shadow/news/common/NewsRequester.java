@@ -1,4 +1,4 @@
-package com.chariot.shadow.news;
+package com.chariot.shadow.news.common;
 
 import java.util.Date;
 

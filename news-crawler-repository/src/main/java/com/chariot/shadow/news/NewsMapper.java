@@ -1,5 +1,6 @@
 package com.chariot.shadow.news;
 
+import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.chariot.shadow.news.diamond.NewsEntity;
 import com.chariot.shadow.supplier.Supplier;
 import com.chariot.shadow.supplier.SupplierCode;

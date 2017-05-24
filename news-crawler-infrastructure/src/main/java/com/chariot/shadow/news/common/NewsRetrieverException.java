@@ -1,4 +1,4 @@
-package com.chariot.shadow.news;
+package com.chariot.shadow.news.common;
 
 /**
  * Created by Trung Vu on 2017/05/23.
