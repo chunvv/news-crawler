@@ -1,0 +1,12 @@
+com/chariot/shadow/supplier/SupplierName.class
+com/chariot/shadow/news/NewsID.class
+com/chariot/shadow/supplier/Supplier.class
+com/chariot/shadow/news/factory/NewsFactory.class
+com/chariot/shadow/news/Content.class
+com/chariot/shadow/supplier/SupplierType.class
+com/chariot/shadow/news/News.class
+com/chariot/shadow/news/Title.class
+com/chariot/shadow/supplier/SupplierCode.class
+com/chariot/shadow/news/PublicationDate.class
+com/chariot/shadow/news/Link.class
+com/chariot/shadow/supplier/SupplierID.class

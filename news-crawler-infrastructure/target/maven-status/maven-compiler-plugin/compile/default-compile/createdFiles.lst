@@ -1,0 +1,11 @@
+com/chariot/shadow/news/common/NewsRetrieverException.class
+com/chariot/shadow/news/diamond/NewsFeedFactory.class
+com/chariot/shadow/news/common/NewsSourceRetriever.class
+com/chariot/shadow/news/common/NewsRequester.class
+com/chariot/shadow/news/common/FeedNewsSourceRetriever.class
+com/chariot/shadow/news/diamond/DiamondNewsUrlGenerator.class
+com/chariot/shadow/UrlGenerator.class
+com/chariot/shadow/news/NewsInfrastructure.class
+com/chariot/shadow/news/diamond/DiamondNewsInfrastructure.class
+com/chariot/shadow/news/diamond/NewsEntity.class
+com/chariot/shadow/file/FileInfrastructure.class
