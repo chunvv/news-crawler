@@ -4,8 +4,8 @@ import com.chariot.shadow.news.FeedNewsSourceRetriever;
 import com.chariot.shadow.news.NewsRequester;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
-import lombok.Value;
 
+import javax.inject.Named;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
  * <p>
  * Created by Trung Vu on 2017/05/23.
  */
-@Value
+@Named
 public class DiamondNewsInfrastructure extends FeedNewsSourceRetriever {
 
     public DiamondNewsInfrastructure(NewsRequester newsRequester) {

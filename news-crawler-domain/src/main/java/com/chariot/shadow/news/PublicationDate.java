@@ -2,7 +2,7 @@ package com.chariot.shadow.news;
 
 import lombok.Value;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * Created by Trung Vu on 2017/05/23.
@@ -10,5 +10,5 @@ import java.time.LocalDateTime;
 @Value
 public class PublicationDate {
 
-    private LocalDateTime date;
+    private Date date;
 }
