@@ -6,6 +6,7 @@ import com.chariot.shadow.news.diamond.NewsEntity;
 import com.sun.syndication.io.FeedException;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
  * <p>
  * Created by Trung Vu on 2017/05/24.
  */
+@Named
 public class NewsRepository {
 
     @Inject

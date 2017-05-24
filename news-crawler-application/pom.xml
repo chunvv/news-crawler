@@ -11,5 +11,12 @@
 
     <artifactId>news-crawler-application</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.chariot.shadow</groupId>
+            <artifactId>news-crawler-repository</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
