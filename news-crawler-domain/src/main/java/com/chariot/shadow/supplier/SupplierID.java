@@ -8,5 +8,5 @@ import lombok.Value;
 @Value
 public class SupplierID {
 
-    private int code;
+    private int id;
 }
