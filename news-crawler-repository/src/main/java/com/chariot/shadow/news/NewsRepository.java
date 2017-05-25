@@ -1,6 +1,7 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.file.FileInfrastructure;
+import com.chariot.shadow.news.common.NewsRequester;
 import com.chariot.shadow.news.diamond.DiamondNewsInfrastructure;
 import com.chariot.shadow.news.diamond.NewsEntity;
 import com.sun.syndication.io.FeedException;
@@ -29,8 +30,8 @@ public class NewsRepository {
     @Inject
     private NewsMapper mapper;
 
-    public List<News> retrieve(File workingDirectory) throws IOException, FeedException {
-        List<NewsEntity> newsEntities = diamondNewsInfrastructure.retrieve();
+    public List<News> retrieve(File workingDirectory, NewsRequester newsRequester) throws IOException, FeedException {
+        List<NewsEntity> newsEntities = diamondNewsInfrastructure.retrieve(newsRequester);
         newsEntities.forEach(entry -> fileInfrastructure.write(entry, workingDirectory));
         return newsEntities.stream().map(entity -> mapper.map(entity)).collect(Collectors.toList());
     }

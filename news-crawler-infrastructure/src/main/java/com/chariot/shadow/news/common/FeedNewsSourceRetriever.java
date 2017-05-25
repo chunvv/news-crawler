@@ -26,7 +26,8 @@ public abstract class FeedNewsSourceRetriever implements NewsSourceRetriever {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<NewsEntity> retrieve() throws IOException, FeedException {
+    public List<NewsEntity> retrieve(NewsRequester newsRequester) throws IOException, FeedException {
+        this.newsRequester = newsRequester;
         SyndFeed feed = build();
         excludeCandidates(feed.getEntries());
         return process(feed);

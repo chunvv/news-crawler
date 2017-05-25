@@ -1,5 +1,6 @@
 package com.chariot.shadow.news;
 
+import com.chariot.shadow.news.common.NewsRequester;
 import com.sun.syndication.io.FeedException;
 
 import javax.inject.Inject;
@@ -17,8 +18,8 @@ public class NewsApplication {
     @Inject
     private NewsRepository newsRepository;
 
-    public List<News> retrieve(File workingFile) throws IOException, FeedException {
-        return newsRepository.retrieve(workingFile);
+    public List<News> retrieve(File workingFile, NewsRequester newsRequester) throws IOException, FeedException {
+        return newsRepository.retrieve(workingFile, newsRequester);
     }
 
     public void store(List<News> newsList) {

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface NewsSourceRetriever {
 
-    List<NewsEntity> retrieve() throws IOException, FeedException;
+    List<NewsEntity> retrieve(NewsRequester newsRequester) throws IOException, FeedException;
 
     SyndFeed build() throws IOException, FeedException;
 

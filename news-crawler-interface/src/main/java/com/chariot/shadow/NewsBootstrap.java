@@ -3,10 +3,13 @@ package com.chariot.shadow;
 import com.chariot.shadow.date.DatePattern;
 import com.chariot.shadow.news.News;
 import com.chariot.shadow.news.NewsApplication;
+import com.chariot.shadow.news.common.NewsRequester;
 import com.chariot.shadow.supplier.*;
 import com.sun.syndication.io.FeedException;
-import lombok.Value;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -18,22 +21,29 @@ import java.util.List;
  * <p>
  * Created by Trung Vu on 2017/05/25.
  */
-@Value
+@RequiredArgsConstructor
 public class NewsBootstrap {
 
+    @NonNull
     private File workingFile;
+    @NonNull
     private Supplier supplier;
+    @NonNull
     private Date from;
+    @NonNull
     private Date to;
+
+    @Inject
+    private NewsApplication application;
 
     public static void main(String[] args) throws IOException, FeedException {
         if (args.length < 4)
             throw new IllegalArgumentException("Not enough arguments. Required: working directory, supplier ID, from, to");
 
-        File workingDirecory = new File(args[0]).getAbsoluteFile();
-        if (!workingDirecory.exists() || !workingDirecory.isDirectory())
+        File workingDirectory = new File(args[0]).getAbsoluteFile();
+        if (!workingDirectory.exists() || !workingDirectory.isDirectory())
             throw new IllegalArgumentException(
-                    "working directory doesn't exist or not a directory: " + workingDirecory);
+                    "working directory doesn't exist or not a directory: " + workingDirectory);
 
         SupplierType supplier = SupplierType.get(Integer.valueOf(args[1]));
 
@@ -51,7 +61,7 @@ public class NewsBootstrap {
         }
 
         new NewsBootstrap(
-                workingDirecory,
+                workingDirectory,
                 new Supplier(
                         new SupplierID(supplier.getId()),
                         new SupplierCode(supplier.getCode()),
@@ -60,15 +70,28 @@ public class NewsBootstrap {
                 run();
     }
 
-    public void run() throws IOException, FeedException {
+    private void run() throws IOException, FeedException {
         switch (supplier.getId().getId()) {
             case 1:
-                NewsApplication application = new NewsApplication();
-                List<News> newsList = application.retrieve(workingFile);
+                List<News> newsList = application.retrieve(workingFile, generateNewsRequester(from, to));
                 application.store(newsList);
                 break;
             default:
                 break;
         }
+    }
+
+    private NewsRequester generateNewsRequester(Date from, Date to) {
+        return new NewsRequester() {
+            @Override
+            public Date from() {
+                return from;
+            }
+
+            @Override
+            public Date to() {
+                return to;
+            }
+        };
     }
 }
