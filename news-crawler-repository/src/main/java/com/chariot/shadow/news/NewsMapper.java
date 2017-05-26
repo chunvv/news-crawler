@@ -7,7 +7,6 @@ import com.chariot.shadow.supplier.SupplierCode;
 import com.chariot.shadow.supplier.SupplierID;
 import com.chariot.shadow.supplier.SupplierName;
 
-import javax.inject.Named;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -18,7 +17,6 @@ import static com.chariot.shadow.supplier.SupplierType.DIAMOND;
  * <p>
  * Created by Trung Vu on 2017/05/24.
  */
-@Named
 public class NewsMapper {
 
     public News map(NewsEntity entity) {

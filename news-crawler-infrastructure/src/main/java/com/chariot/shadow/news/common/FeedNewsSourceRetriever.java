@@ -12,6 +12,7 @@ import lombok.Getter;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -42,12 +43,13 @@ public abstract class FeedNewsSourceRetriever implements NewsSourceRetriever {
     public void excludeCandidates(List<SyndEntry> entries) {
         Date from = newsRequester.from();
         Date to = newsRequester.to();
-
-        entries.stream().forEach(entry -> {
+        Iterator iterator = entries.iterator();
+        while (iterator.hasNext()) {
+            SyndEntry entry = (SyndEntry) iterator.next();
             Date publishedDate = entry.getPublishedDate();
             if (publishedDate != null && (publishedDate.compareTo(from) < 0 || publishedDate.compareTo(to) > 0)) {
-                entries.remove(entry);
+                iterator.remove();
             }
-        });
+        }
     }
 }

@@ -6,10 +6,8 @@ import com.chariot.shadow.news.NewsApplication;
 import com.chariot.shadow.news.common.NewsRequester;
 import com.chariot.shadow.supplier.*;
 import com.sun.syndication.io.FeedException;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
-import javax.inject.Inject;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -21,20 +19,14 @@ import java.util.List;
  * <p>
  * Created by Trung Vu on 2017/05/25.
  */
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class NewsBootstrap {
 
-    @NonNull
-    private File workingFile;
-    @NonNull
-    private Supplier supplier;
-    @NonNull
-    private Date from;
-    @NonNull
-    private Date to;
-
-    @Inject
     private NewsApplication application;
+    private File workingFile;
+    private Supplier supplier;
+    private Date from;
+    private Date to;
 
     public static void main(String[] args) throws IOException, FeedException {
         if (args.length < 4)
@@ -60,7 +52,20 @@ public class NewsBootstrap {
                     "Invalid date format. The format must be yyyyMMdd");
         }
 
+//        ApplicationContext context =
+//                new ClassPathXmlApplicationContext(new String[]{"news-crawler-config.xml"});
+//        NewsBootstrap newsBootstrap = (NewsBootstrap) context.getBean("newsBootstrap");
+//        newsBootstrap.setWorkingFile(workingDirectory);
+//        newsBootstrap.setSupplier( new Supplier(
+//                new SupplierID(supplier.getId()),
+//                new SupplierCode(supplier.getCode()),
+//                new SupplierName(supplier.getName())));
+//        newsBootstrap.setFrom(from);
+//        newsBootstrap.setTo(to);
+//        
+//        newsBootstrap.run();
         new NewsBootstrap(
+                new NewsApplication(),
                 workingDirectory,
                 new Supplier(
                         new SupplierID(supplier.getId()),

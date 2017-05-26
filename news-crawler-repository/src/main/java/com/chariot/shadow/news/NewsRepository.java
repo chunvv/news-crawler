@@ -6,8 +6,6 @@ import com.chariot.shadow.news.diamond.DiamondNewsInfrastructure;
 import com.chariot.shadow.news.diamond.NewsEntity;
 import com.sun.syndication.io.FeedException;
 
-import javax.inject.Inject;
-import javax.inject.Named;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -18,22 +16,16 @@ import java.util.stream.Collectors;
  * <p>
  * Created by Trung Vu on 2017/05/24.
  */
-@Named
 public class NewsRepository {
 
-    @Inject
-    private DiamondNewsInfrastructure diamondNewsInfrastructure;
-    @Inject
-    private FileInfrastructure fileInfrastructure;
-    @Inject
-    private NewsInfrastructure newsInfrastructure;
-    @Inject
-    private NewsMapper mapper;
+    private FileInfrastructure fileInfrastructure = new FileInfrastructure();
+    private NewsInfrastructure newsInfrastructure = new NewsInfrastructure();
+    private NewsMapper newsMapper = new NewsMapper();
 
     public List<News> retrieve(File workingDirectory, NewsRequester newsRequester) throws IOException, FeedException {
-        List<NewsEntity> newsEntities = diamondNewsInfrastructure.retrieve(newsRequester);
+        List<NewsEntity> newsEntities = new DiamondNewsInfrastructure(newsRequester).retrieve(newsRequester);
         newsEntities.forEach(entry -> fileInfrastructure.write(entry, workingDirectory));
-        return newsEntities.stream().map(entity -> mapper.map(entity)).collect(Collectors.toList());
+        return newsEntities.stream().map(entity -> newsMapper.map(entity)).collect(Collectors.toList());
     }
 
     public void store(List<News> newsList) {

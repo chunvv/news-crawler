@@ -1,6 +1,7 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.supplier.Supplier;
+import lombok.AllArgsConstructor;
 import lombok.Value;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Value;
  * Created by Trung Vu on 2017/05/23.
  */
 @Value
+@AllArgsConstructor
 public class News {
 
     private NewsID id;
