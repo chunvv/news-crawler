@@ -21,10 +21,10 @@ public class DiamondNewsInfrastructure extends FeedNewsSourceRetriever {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<NewsEntity> process(SyndFeed feed) {
-        return (List<NewsEntity>) feed.getEntries().
+    public List<Article> process(SyndFeed feed) {
+        return (List<Article>) feed.getEntries().
                 stream().
-                map(entry -> new NewsEntity(NewsFeedFactory.createNewsFeed(feed), (SyndEntry) entry)).
+                map(entry -> new Article(NewsFeedFactory.createNewsFeed(feed), (SyndEntry) entry)).
                 collect(Collectors.toList());
     }
 }

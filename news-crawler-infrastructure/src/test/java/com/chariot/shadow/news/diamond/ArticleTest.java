@@ -17,10 +17,10 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Trung Vu on 2017/05/23.
  */
-public class NewsEntityTest {
+public class ArticleTest {
 
     @Tested
-    private NewsEntity news;
+    private Article news;
     @Injectable
     private SyndFeed feed;
     @Injectable 

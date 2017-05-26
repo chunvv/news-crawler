@@ -38,7 +38,7 @@ public class DiamondNewsInfrastructureTest {
             feed.getEntries(); result = entries;
         }};
 
-        List<NewsEntity> actual = infrastructure.process(feed);
+        List<Article> actual = infrastructure.process(feed);
         
         assertThat(actual.size(), is(2));
         assertThat(actual.get(0).getFeed().getAuthor(), is("author"));

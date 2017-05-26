@@ -14,13 +14,13 @@ import java.util.regex.Pattern;
  * Created by Trung Vu on 2017/05/23.
  */
 @Value
-public class NewsEntity {
+public class Article {
 
-    private static final Pattern UNIQUE_PATTERN = Pattern.compile("[^/]*$");
+    private static final Pattern UNIQUE_PATTERN = Pattern.compile("[^/-]*$");
     private static final String FILENAME_PREFIX = "D";
     private SyndFeed feed;
 
-    public NewsEntity(SyndFeed feed, SyndEntry entry) {
+    public Article(SyndFeed feed, SyndEntry entry) {
         this.feed = feed;
         this.feed.setEntries(Arrays.asList(entry));
     }

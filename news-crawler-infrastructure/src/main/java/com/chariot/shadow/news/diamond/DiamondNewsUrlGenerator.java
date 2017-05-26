@@ -12,6 +12,6 @@ public class DiamondNewsUrlGenerator implements UrlGenerator {
 
     @Override
     public URL generate() throws MalformedURLException {
-        return new URL("http://diamond.jp/list/feed/rss4newspicks");
+        return new URL("http://feeds.skynews.com/feeds/rss/technology.xml");
     }
 }

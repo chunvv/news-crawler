@@ -1,6 +1,6 @@
 package com.chariot.shadow.news.common;
 
-import com.chariot.shadow.news.diamond.NewsEntity;
+import com.chariot.shadow.news.diamond.Article;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
@@ -13,11 +13,11 @@ import java.util.List;
  */
 public interface NewsSourceRetriever {
 
-    List<NewsEntity> retrieve(NewsRequester newsRequester) throws IOException, FeedException;
+    List<Article> retrieve(NewsRequester newsRequester) throws IOException, FeedException;
 
     SyndFeed build() throws IOException, FeedException;
 
     void excludeCandidates(List<SyndEntry> entries);
 
-    List<NewsEntity> process(SyndFeed feed);
+    List<Article> process(SyndFeed feed);
 }
