@@ -52,18 +52,6 @@ public class NewsBootstrap {
                     "Invalid date format. The format must be yyyyMMdd");
         }
 
-//        ApplicationContext context =
-//                new ClassPathXmlApplicationContext(new String[]{"news-crawler-config.xml"});
-//        NewsBootstrap newsBootstrap = (NewsBootstrap) context.getBean("newsBootstrap");
-//        newsBootstrap.setWorkingFile(workingDirectory);
-//        newsBootstrap.setSupplier( new Supplier(
-//                new SupplierID(supplier.getId()),
-//                new SupplierCode(supplier.getCode()),
-//                new SupplierName(supplier.getName())));
-//        newsBootstrap.setFrom(from);
-//        newsBootstrap.setTo(to);
-//        
-//        newsBootstrap.run();
         new NewsBootstrap(
                 new NewsApplication(),
                 workingDirectory,
