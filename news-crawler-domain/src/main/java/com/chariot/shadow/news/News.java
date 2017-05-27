@@ -40,4 +40,8 @@ public class News {
     public Date getPublicationDateAsDate() {
         return publicationDate.getDate();
     }
+
+    public String getSupplierIdAsString() {
+        return String.valueOf(supplier.getIdAsInt());
+    }
 }
