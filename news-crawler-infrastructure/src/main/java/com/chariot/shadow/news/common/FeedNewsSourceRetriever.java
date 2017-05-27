@@ -1,7 +1,7 @@
 package com.chariot.shadow.news.common;
 
 import com.chariot.shadow.UrlGenerator;
-import com.chariot.shadow.news.diamond.Article;
+import com.chariot.shadow.news.skynews.ArticleEntry;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
@@ -27,7 +27,7 @@ public abstract class FeedNewsSourceRetriever implements NewsSourceRetriever {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Article> retrieve(NewsRequester newsRequester) throws IOException, FeedException {
+    public List<ArticleEntry> retrieve(NewsRequester newsRequester) throws IOException, FeedException {
         this.newsRequester = newsRequester;
         SyndFeed feed = build();
         excludeCandidates(feed.getEntries());

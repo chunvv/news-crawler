@@ -1,7 +1,7 @@
 package com.chariot.shadow.file;
 
 import com.chariot.shadow.news.common.NewsRetrieverException;
-import com.chariot.shadow.news.diamond.Article;
+import com.chariot.shadow.news.skynews.ArticleEntry;
 import com.sun.syndication.io.FeedException;
 import com.sun.syndication.io.SyndFeedOutput;
 
@@ -15,7 +15,7 @@ public class FileInfrastructure {
 
     private static final String FILE_NAME = "news.rss";
 
-    public void write(Article news, File working) {
+    public void write(ArticleEntry news, File working) {
         File entryDirectory = null;
         try {
             entryDirectory = new File(working, news.generateUniqueFileName());

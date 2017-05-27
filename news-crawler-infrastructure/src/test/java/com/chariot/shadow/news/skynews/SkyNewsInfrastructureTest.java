@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.diamond;
+package com.chariot.shadow.news.skynews;
 
 import com.chariot.shadow.UrlGenerator;
 import com.chariot.shadow.news.common.NewsRequester;
@@ -20,10 +20,10 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Trung Vu on 2017/05/23.
  */
-public class DiamondNewsInfrastructureTest {
+public class SkyNewsInfrastructureTest {
 
     @Tested
-    private DiamondNewsInfrastructure infrastructure;
+    private SkyNewsInfrastructure infrastructure;
     @Injectable
     private UrlGenerator generator;
     @Injectable
@@ -38,7 +38,7 @@ public class DiamondNewsInfrastructureTest {
             feed.getEntries(); result = entries;
         }};
 
-        List<Article> actual = infrastructure.process(feed);
+        List<ArticleEntry> actual = infrastructure.process(feed);
         
         assertThat(actual.size(), is(2));
         assertThat(actual.get(0).getFeed().getAuthor(), is("author"));
