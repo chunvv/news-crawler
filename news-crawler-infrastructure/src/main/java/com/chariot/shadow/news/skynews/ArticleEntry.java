@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.diamond;
+package com.chariot.shadow.news.skynews;
 
 import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.sun.syndication.feed.synd.SyndEntry;
@@ -14,13 +14,13 @@ import java.util.regex.Pattern;
  * Created by Trung Vu on 2017/05/23.
  */
 @Value
-public class Article {
+public class ArticleEntry {
 
     private static final Pattern UNIQUE_PATTERN = Pattern.compile("[^/-]*$");
     private static final String FILENAME_PREFIX = "D";
     private SyndFeed feed;
 
-    public Article(SyndFeed feed, SyndEntry entry) {
+    public ArticleEntry(SyndFeed feed, SyndEntry entry) {
         this.feed = feed;
         this.feed.setEntries(Arrays.asList(entry));
     }

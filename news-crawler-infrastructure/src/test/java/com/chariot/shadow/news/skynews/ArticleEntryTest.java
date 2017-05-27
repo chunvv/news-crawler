@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.diamond;
+package com.chariot.shadow.news.skynews;
 
 import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.sun.syndication.feed.synd.SyndEntry;
@@ -17,10 +17,10 @@ import static org.junit.Assert.assertThat;
 /**
  * Created by Trung Vu on 2017/05/23.
  */
-public class ArticleTest {
+public class ArticleEntryTest {
 
     @Tested
-    private Article news;
+    private ArticleEntry news;
     @Injectable
     private SyndFeed feed;
     @Injectable 

@@ -1,7 +1,7 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.news.common.NewsRetrieverException;
-import com.chariot.shadow.news.diamond.Article;
+import com.chariot.shadow.news.skynews.ArticleEntry;
 import com.chariot.shadow.news.factory.NewsFactory;
 import com.chariot.shadow.supplier.Supplier;
 import com.chariot.shadow.supplier.SupplierCode;
@@ -12,16 +12,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.Timestamp;
 
-import static com.chariot.shadow.supplier.SupplierType.DIAMOND;
+import static com.chariot.shadow.supplier.SupplierType.SKY_NEWS;
 
 /**
- * Mapping Article to News object
+ * Mapping ArticleEntry to News object
  * <p>
  * Created by Trung Vu on 2017/05/24.
  */
 public class NewsMapper {
 
-    public News map(Article entity) {
+    public News map(ArticleEntry entity) {
         try {
             return NewsFactory.create(
                     new NewsID(entity.generateUniqueFileName()),
@@ -30,9 +30,9 @@ public class NewsMapper {
                     new Link(new URL(entity.getEntry().getLink())),
                     new PublicationDate(entity.getEntry().getPublishedDate()),
                     new Supplier(
-                            new SupplierID(DIAMOND.getId()),
-                            new SupplierCode(DIAMOND.getCode()),
-                            new SupplierName(DIAMOND.getName()))
+                            new SupplierID(SKY_NEWS.getId()),
+                            new SupplierCode(SKY_NEWS.getCode()),
+                            new SupplierName(SKY_NEWS.getName()))
             );
         } catch (NewsRetrieverException | MalformedURLException e) {
             throw new RuntimeException();

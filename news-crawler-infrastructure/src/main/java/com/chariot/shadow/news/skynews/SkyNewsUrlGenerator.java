@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.diamond;
+package com.chariot.shadow.news.skynews;
 
 import com.chariot.shadow.UrlGenerator;
 
@@ -8,7 +8,7 @@ import java.net.URL;
 /**
  * Created by Trung Vu on 2017/05/23.
  */
-public class DiamondNewsUrlGenerator implements UrlGenerator {
+public class SkyNewsUrlGenerator implements UrlGenerator {
 
     @Override
     public URL generate() throws MalformedURLException {
