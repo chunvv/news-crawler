@@ -28,9 +28,20 @@ public class NewsBootstrap {
     private Date from;
     private Date to;
 
+    /**
+     * 1. Folder
+     * 2: supplier id
+     * 3: from date
+     * 4: to date 
+     * /data/news 1 20170524 20170528
+     * @param args
+     * @throws IOException
+     * @throws FeedException
+     */
     public static void main(String[] args) throws IOException, FeedException {
-        if (args.length < 4)
+        if (args.length < 4) {
             throw new IllegalArgumentException("Not enough arguments. Required: working directory, supplier ID, from, to");
+        }
 
         File workingDirectory = new File(args[0]).getAbsoluteFile();
         if (!workingDirectory.exists() || !workingDirectory.isDirectory())
