@@ -22,7 +22,7 @@ release() {
     
     cd ../shadow-news-crawler
     mvn clean install -DskipTests=true
-    cp news-crawler-interface/target/news-crawler-interface-1.0-SNAPSHOT.jar $EXECUTE_JAR_FOLDER
+    cp news-crawler-interface/target/news-crawler-interface-1.0-SNAPSHOT-jar-with-dependencies.jar $EXECUTE_JAR_FOLDER
     checkError $? "Failed to copy news-crawler-interface/target/news-crawler-interface-1.0-SNAPSHOT.jar to $EXECUTE_JAR_FOLDER"
 
     return 0

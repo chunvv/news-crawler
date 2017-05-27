@@ -14,6 +14,7 @@ import org.junit.Test;
 import java.util.List;
 
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 /**
  * Created by Trung Vu on 2017/05/23.
@@ -35,7 +36,7 @@ public class ArticleEntryTest {
             entry.getUri(); result = "http://diamond.jp/articles/-/129212";
         }};
 
-        assertThat(news.getName(), Is.is("D129212"));
+        assertThat(news.getName(), Is.is("129212"));
     }
 
     @Test(expected = NewsRetrieverException.class)
@@ -45,7 +46,8 @@ public class ArticleEntryTest {
             entry.getUri(); result = null;
         }};
 
-        assertThat(news.getName(), Is.is("N129212"));
+        news.getName();
+        fail();
     }
 
     @Test

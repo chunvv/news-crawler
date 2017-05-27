@@ -8,4 +8,4 @@ LOG_FOLDER="/data/log/shadow"
 
 TODAY=`date +%Y%m%d`
 LOG_FILE="$LOG_FOLDER/RUN_NEWS_BOOTSTRAP_$TODAY.log"
-CLASSPATH=""
+EXECUTE_JAR_FILE="news-crawler-interface-1.0-SNAPSHOT-jar-with-dependencies.jar"

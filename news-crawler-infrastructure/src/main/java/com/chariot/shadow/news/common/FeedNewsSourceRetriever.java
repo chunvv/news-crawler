@@ -42,9 +42,9 @@ public abstract class FeedNewsSourceRetriever implements NewsSourceRetriever {
     public void excludeCandidates(List<SyndEntry> entries) {
         Date from = newsRequester.from();
         Date to = newsRequester.to();
-        Iterator iterator = entries.iterator();
+        Iterator<SyndEntry> iterator = entries.iterator();
         while (iterator.hasNext()) {
-            SyndEntry entry = (SyndEntry) iterator.next();
+            SyndEntry entry = iterator.next();
             Date publishedDate = entry.getPublishedDate();
             if (publishedDate != null && (publishedDate.compareTo(from) < 0 || publishedDate.compareTo(to) > 0)) {
                 iterator.remove();

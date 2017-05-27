@@ -22,4 +22,6 @@ public enum SupplierType {
     public static SupplierType get(int id) {
         return Stream.of(values()).filter(value -> value.id == id).findFirst().orElseThrow(IllegalArgumentException::new);
     }
+    
+    
 }

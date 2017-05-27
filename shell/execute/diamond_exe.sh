@@ -23,7 +23,7 @@ runJava() {
     cleanFolder "$working_dir/$TODAY"
 
     cd $EXECUTE_JAR_FOLDER
-    java -cp $CLASSPATH com.chariot.shadow.NewsBootstrap $working_dir $supplier $from_date $to_date >>${LOG_FILE} 2>&1
+    java -jar news-crawler-interface-1.0-SNAPSHOT-jar-with-dependencies.jar $working_dir $supplier $from_date $to_date >>${LOG_FILE} 2>&1
     
     checkError $? "Cannot run java!"
     return 1
