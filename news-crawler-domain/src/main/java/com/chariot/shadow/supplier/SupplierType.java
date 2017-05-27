@@ -12,7 +12,8 @@ import java.util.stream.Stream;
 @Getter
 public enum SupplierType {
 
-    SKY_NEWS(1, "D", "Sky News");
+    SKY_NEWS(1, "S", "Sky News"),
+    IT_NEWS(2, "I", "IT News");
 
     private int id;
     private String code;

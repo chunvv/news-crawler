@@ -1,6 +1,7 @@
 package com.chariot.shadow.news.skynews;
 
-import com.chariot.shadow.UrlGenerator;
+import com.chariot.shadow.news.UrlGenerator;
+import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.NewsRequester;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndEntryImpl;

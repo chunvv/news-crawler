@@ -7,6 +7,7 @@
 /Users/trung.vu/Documents/workspace/shadow/shadow-news-crawler/news-crawler-domain/src/main/java/com/chariot/shadow/news/NewsID.java
 /Users/trung.vu/Documents/workspace/shadow/shadow-news-crawler/news-crawler-domain/src/main/java/com/chariot/shadow/supplier/SupplierCode.java
 /Users/trung.vu/Documents/workspace/shadow/shadow-news-crawler/news-crawler-domain/src/main/java/com/chariot/shadow/supplier/Supplier.java
+/Users/trung.vu/Documents/workspace/shadow/shadow-news-crawler/news-crawler-domain/src/main/java/com/chariot/shadow/supplier/factory/SupplierFactory.java
 /Users/trung.vu/Documents/workspace/shadow/shadow-news-crawler/news-crawler-domain/src/main/java/com/chariot/shadow/news/factory/NewsFactory.java
 /Users/trung.vu/Documents/workspace/shadow/shadow-news-crawler/news-crawler-domain/src/main/java/com/chariot/shadow/news/Title.java
 /Users/trung.vu/Documents/workspace/shadow/shadow-news-crawler/news-crawler-domain/src/main/java/com/chariot/shadow/supplier/SupplierName.java

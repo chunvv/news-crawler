@@ -1,5 +1,6 @@
-package com.chariot.shadow.news.skynews;
+package com.chariot.shadow.news;
 
+import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
@@ -34,7 +35,7 @@ public class ArticleEntryTest {
             entry.getUri(); result = "http://diamond.jp/articles/-/129212";
         }};
 
-        assertThat(news.generateUniqueFileName(), Is.is("D129212"));
+        assertThat(news.getName(), Is.is("D129212"));
     }
 
     @Test(expected = NewsRetrieverException.class)
@@ -44,7 +45,7 @@ public class ArticleEntryTest {
             entry.getUri(); result = null;
         }};
 
-        assertThat(news.generateUniqueFileName(), Is.is("D129212"));
+        assertThat(news.getName(), Is.is("N129212"));
     }
 
     @Test

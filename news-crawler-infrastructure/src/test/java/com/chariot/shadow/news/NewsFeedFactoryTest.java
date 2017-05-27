@@ -1,5 +1,6 @@
-package com.chariot.shadow.news.skynews;
+package com.chariot.shadow.news;
 
+import com.chariot.shadow.news.common.NewsFeedFactory;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.feed.synd.SyndFeedImpl;
 import org.junit.Test;

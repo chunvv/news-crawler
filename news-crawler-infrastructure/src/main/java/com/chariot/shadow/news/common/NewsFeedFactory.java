@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.skynews;
+package com.chariot.shadow.news.common;
 
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.feed.synd.SyndFeedImpl;

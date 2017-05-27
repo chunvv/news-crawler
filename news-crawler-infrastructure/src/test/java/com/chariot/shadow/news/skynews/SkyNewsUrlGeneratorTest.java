@@ -1,4 +1,4 @@
-package com.chariot.shadow;
+package com.chariot.shadow.news.skynews;
 
 import com.chariot.shadow.news.skynews.SkyNewsUrlGenerator;
 import mockit.Tested;

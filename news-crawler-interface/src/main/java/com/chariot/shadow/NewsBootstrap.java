@@ -6,7 +6,8 @@ import com.chariot.shadow.news.NewsApplication;
 import com.chariot.shadow.news.common.NewsRequester;
 import com.chariot.shadow.supplier.*;
 import com.sun.syndication.io.FeedException;
-import lombok.AllArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,21 +20,26 @@ import java.util.List;
  * <p>
  * Created by Trung Vu on 2017/05/25.
  */
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class NewsBootstrap {
 
     private NewsApplication application;
+    @NonNull
     private File workingFile;
+    @NonNull
     private Supplier supplier;
+    @NonNull
     private Date from;
+    @NonNull
     private Date to;
 
     /**
      * 1. Folder
      * 2: supplier id
      * 3: from date
-     * 4: to date 
+     * 4: to date
      * /data/news 1 20170524 20170528
+     *
      * @param args
      * @throws IOException
      * @throws FeedException
@@ -64,7 +70,6 @@ public class NewsBootstrap {
         }
 
         new NewsBootstrap(
-                new NewsApplication(),
                 workingDirectory,
                 new Supplier(
                         new SupplierID(supplier.getId()),
@@ -75,9 +80,16 @@ public class NewsBootstrap {
     }
 
     private void run() throws IOException, FeedException {
-        switch (supplier.getId().getId()) {
+        List<News> newsList;
+        switch (supplier.getIdAsInt()) {
             case 1:
-                List<News> newsList = application.retrieve(workingFile, generateNewsRequester(from, to));
+                application = new NewsApplication(SupplierType.SKY_NEWS, generateNewsRequester(from, to));
+                newsList = application.retrieve(workingFile);
+                application.store(newsList);
+                break;
+            case 2:
+                application = new NewsApplication(SupplierType.IT_NEWS, generateNewsRequester(from, to));
+                newsList = application.retrieve(workingFile);
                 application.store(newsList);
                 break;
             default:

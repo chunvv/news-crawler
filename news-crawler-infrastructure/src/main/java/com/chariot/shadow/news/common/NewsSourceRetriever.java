@@ -1,6 +1,5 @@
 package com.chariot.shadow.news.common;
 
-import com.chariot.shadow.news.skynews.ArticleEntry;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;

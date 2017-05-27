@@ -13,4 +13,16 @@ public class Supplier {
     private SupplierID id;
     private SupplierCode code;
     private SupplierName name;
+
+    public int getIdAsInt() {
+        return id.getId();
+    }
+
+    public String getCodeAsString() {
+        return code.getCode();
+    }
+
+    public String getNameAsString() {
+        return name.getName();
+    }
 }

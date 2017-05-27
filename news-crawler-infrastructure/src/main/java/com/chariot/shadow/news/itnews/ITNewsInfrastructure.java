@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.skynews;
+package com.chariot.shadow.news.itnews;
 
 import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.FeedNewsSourceRetriever;
@@ -11,14 +11,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Sky News Infrastructure
+ * IT News Infrastructure
  * <p>
- * Created by Trung Vu on 2017/05/23.
+ * Created by Trung Vu on 2017/05/27.
  */
-public class SkyNewsInfrastructure extends FeedNewsSourceRetriever {
+public class ITNewsInfrastructure extends FeedNewsSourceRetriever {
 
-    public SkyNewsInfrastructure(NewsRequester newsRequester) {
-        super(new SkyNewsUrlGenerator(), newsRequester);
+    public ITNewsInfrastructure(NewsRequester newsRequester) {
+        super(new ITNewsUrlGenerator(), newsRequester);
     }
 
     @Override

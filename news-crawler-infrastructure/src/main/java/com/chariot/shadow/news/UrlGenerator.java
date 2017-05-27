@@ -1,4 +1,4 @@
-package com.chariot.shadow;
+package com.chariot.shadow.news;
 
 import java.net.MalformedURLException;
 import java.net.URL;

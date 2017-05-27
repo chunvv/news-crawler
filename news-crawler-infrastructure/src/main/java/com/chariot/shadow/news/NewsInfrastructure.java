@@ -10,6 +10,8 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
+ * News Infrastructure for communicating with DB
+ * <p>
  * Created by Trung Vu on 2017/05/24.
  */
 public class NewsInfrastructure {
@@ -38,7 +40,7 @@ public class NewsInfrastructure {
         em.close();
     }
 
-    public NewsEntity find(EntityManager em, String supplierId, String newsId) {
+    private NewsEntity find(EntityManager em, String supplierId, String newsId) {
         CriteriaBuilder b = em.getCriteriaBuilder();
         CriteriaQuery<NewsEntity> query = b.createQuery(NewsEntity.class);
         query.where(newsDetectionPredicates(b, query.from(NewsEntity.class), supplierId, newsId));

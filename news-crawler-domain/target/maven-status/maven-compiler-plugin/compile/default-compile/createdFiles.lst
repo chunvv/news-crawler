@@ -6,6 +6,7 @@ com/chariot/shadow/date/DatePattern.class
 com/chariot/shadow/news/Title.class
 com/chariot/shadow/news/PublicationDate.class
 com/chariot/shadow/news/Link.class
+com/chariot/shadow/supplier/factory/SupplierFactory.class
 com/chariot/shadow/supplier/Supplier.class
 com/chariot/shadow/news/Content.class
 com/chariot/shadow/news/News.class
