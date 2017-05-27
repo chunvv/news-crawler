@@ -37,11 +37,11 @@ public class NewsMapper {
 
     public NewsEntity map(News news) {
         NewsEntity newsEntity = new NewsEntity();
-        newsEntity.setNewsId(news.getId().getNewsID());
-        newsEntity.setSupplierId(String.valueOf(news.getSupplier().getIdAsInt()));
+        newsEntity.setNewsId(news.getIdAsString());
+        newsEntity.setSupplierId(news.getSupplierIdAsString());
         newsEntity.setTitle(news.getTitleAsString());
         newsEntity.setContent(news.getContentAsString());
-        newsEntity.setLink(String.valueOf(news.getLinkAsString()));
+        newsEntity.setLink(news.getLinkAsString());
         newsEntity.setPublishDate(news.getPublicationDateAsDate());
         newsEntity.setRegistrationTimestamp(new Timestamp(System.currentTimeMillis()));
         return newsEntity;

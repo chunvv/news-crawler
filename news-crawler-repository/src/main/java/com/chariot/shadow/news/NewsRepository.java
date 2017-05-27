@@ -38,7 +38,7 @@ public class NewsRepository {
 
     public List<News> retrieve(File workingDirectory) throws IOException, FeedException {
         FeedNewsSourceRetriever newsRetriever = generateNewsRetriever();
-        List<ArticleEntry> newsEntities = newsRetriever != null ? newsRetriever.retrieve(newsRequester) : Collections.emptyList();
+        List<ArticleEntry> newsEntities = newsRetriever != null ? newsRetriever.retrieve() : Collections.emptyList();
         newsEntities.forEach(entry -> fileInfrastructure.write(entry, workingDirectory));
         return newsEntities.stream().map(entity -> newsMapper.map(entity)).collect(Collectors.toList());
     }

@@ -15,6 +15,8 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * Base class for executing logic to retrieving news rss feed
+ * <p>
  * Created by Trung Vu on 2017/05/23.
  */
 @AllArgsConstructor
@@ -26,8 +28,7 @@ public abstract class FeedNewsSourceRetriever implements NewsSourceRetriever {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<ArticleEntry> retrieve(NewsRequester newsRequester) throws IOException, FeedException {
-        this.newsRequester = newsRequester;
+    public List<ArticleEntry> retrieve() throws IOException, FeedException {
         SyndFeed feed = build();
         excludeCandidates(feed.getEntries());
         return process(feed);
