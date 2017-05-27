@@ -23,7 +23,7 @@ runJava() {
     cleanFolder "$working_dir/$TODAY"
 
     cd $EXECUTE_JAR_FOLDER
-    java -jar news-crawler-interface-1.0-SNAPSHOT-jar-with-dependencies.jar $working_dir $supplier $from_date $to_date >>${LOG_FILE} 2>&1
+    java -cp $CLASS_PATH com.chariot.shadow.NewsBootstrap $working_dir $supplier $from_date $to_date >>${LOG_FILE} 2>&1
     
     checkError $? "Cannot run java!"
     return 1
@@ -33,12 +33,14 @@ echoSomething() {
     local content=$1
 
     echo >>$LOG_FILE
-    echo $content>>$LOG_FILE
+    echo "===============================================">>$LOG_FILE
+    echo "==  $content  ==">>$LOG_FILE
+    echo "===============================================">>$LOG_FILE
     echo >>$LOG_FILE
 }
 
 # Here's main
-echoSomething "The crawler's stopped in `date`"
+echoSomething "The crawler's started in `date`"
 runJava $WORKING_NEWS_FOLDER 1 `date -v-1d +%Y%m%d` $TODAY
 exit_status=$?
 echoSomething "The crawler's finished at `date`"

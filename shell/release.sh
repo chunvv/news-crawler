@@ -19,6 +19,7 @@ release() {
 
     cd ../../shadow-news-entity/
     mvn clean install
+    cp target/shadow-news-entity-1.0-SNAPSHOT.jar $EXECUTE_JAR_FOLDER
     
     cd ../shadow-news-crawler
     mvn clean install -DskipTests=true
