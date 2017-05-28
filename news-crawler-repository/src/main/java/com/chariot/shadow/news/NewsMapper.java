@@ -18,17 +18,17 @@ import java.sql.Timestamp;
 @Value
 public class NewsMapper {
 
-    private SupplierType supplier;
+    private SupplierType supplierType;
 
     public News map(ArticleEntry entity) {
         try {
             return NewsFactory.create(
-                    new NewsID(supplier.getCode() + entity.getName()),
+                    new NewsID(supplierType.getCode() + entity.getName()),
                     new Title(entity.getTitle()),
                     new Content(entity.getContent()),
                     new Link(entity.getLink()),
                     new PublicationDate(entity.getPublishedDate()),
-                    SupplierFactory.create(supplier)
+                    SupplierFactory.create(supplierType)
             );
         } catch (NewsRetrieverException | MalformedURLException e) {
             throw new RuntimeException();

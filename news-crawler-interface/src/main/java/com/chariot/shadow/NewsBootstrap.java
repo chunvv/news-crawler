@@ -1,21 +1,16 @@
 package com.chariot.shadow;
 
+import com.chariot.shadow.date.DatePattern;
+import com.chariot.shadow.news.NewsApplication;
+import com.chariot.shadow.news.common.NewsRequester;
+import com.chariot.shadow.supplier.*;
+import com.sun.syndication.io.FeedException;
+import lombok.Value;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
-
-import com.chariot.shadow.date.DatePattern;
-import com.chariot.shadow.news.NewsApplication;
-import com.chariot.shadow.news.common.NewsRequester;
-import com.chariot.shadow.supplier.Supplier;
-import com.chariot.shadow.supplier.SupplierCode;
-import com.chariot.shadow.supplier.SupplierID;
-import com.chariot.shadow.supplier.SupplierName;
-import com.chariot.shadow.supplier.SupplierType;
-import com.sun.syndication.io.FeedException;
-
-import lombok.Value;
 
 /**
  * News Bootstrap to start news crawler system
@@ -36,7 +31,7 @@ public class NewsBootstrap {
     }
 
     @Value
-    static class BootstrapNewsRequester implements NewsRequester {
+    private static class BootstrapNewsRequester implements NewsRequester {
 
         Date from;
         Date to;
@@ -85,15 +80,15 @@ public class NewsBootstrap {
         }
 
         SupplierType supplierType = SupplierType.get(Integer.valueOf(args[1]));
-        
+
         new NewsBootstrap(
-            new NewsApplication(supplierType, new BootstrapNewsRequester(from, to)),
-            workingDirectory,
-            new Supplier(
-                new SupplierID(supplierType.getId()),
-                new SupplierCode(supplierType.getCode()),
-                new SupplierName(supplierType.getName())),
-            from,
-            to).run();
+                new NewsApplication(supplierType, new BootstrapNewsRequester(from, to)),
+                workingDirectory,
+                new Supplier(
+                        new SupplierID(supplierType.getId()),
+                        new SupplierCode(supplierType.getCode()),
+                        new SupplierName(supplierType.getName())),
+                from,
+                to).run();
     }
 }
