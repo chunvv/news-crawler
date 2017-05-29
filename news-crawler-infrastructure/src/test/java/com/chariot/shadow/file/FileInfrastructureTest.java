@@ -16,25 +16,22 @@ public class FileInfrastructureTest {
     @Tested
     private FileInfrastructure fileInfrastructure;
     @Injectable
-    private String PREFIX_DIRECTORY = "D";
+    private String directoryPrefix;
 
     @Test
-    public void writeToDisk(@Mocked ArticleEntry news, 
-                            @Mocked SyndFeedOutput output,
-                            @Mocked SyndFeed syndFeed) throws Exception {
-        File working = new File("/data/news/skynews");
-        File entryDirectory = new File(working, "D1");
-        File entryFile = new File(entryDirectory, "article.rss");
+    public void testWrite(@Mocked ArticleEntry articleEntry,
+                          @Mocked SyndFeed feed,
+                          @Mocked SyndFeedOutput output) throws Exception {
+        File working = new File("/data/news");
+        File directory = new File(working, "S1");
+        File entry = new File(directory, "article.rss");
         
-        new Expectations() {{
-            news.getName(); result = "1";
-            new File(working, "1"); result = entryDirectory;
-            new File(entryDirectory, "article.rss"); result = entryFile;
-            entryDirectory.mkdir(); result = any;
-            new SyndFeedOutput(); result = output;
-            news.getFeed(); result = syndFeed;
+        new Expectations(fileInfrastructure) {{
+            fileInfrastructure.determineNewsName(articleEntry); result = "S1";
+            articleEntry.getFeed(); result = feed;
+            new SyndFeedOutput().output(feed, entry);
         }};
-
-        fileInfrastructure.write(news, working);
+        
+        fileInfrastructure.write(articleEntry, working);
     }
 }
