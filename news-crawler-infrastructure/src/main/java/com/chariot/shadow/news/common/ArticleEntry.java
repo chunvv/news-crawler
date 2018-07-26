@@ -32,7 +32,7 @@ public class ArticleEntry {
         String guId =
                 Optional.
                         ofNullable(getEntry().getUri()).
-                        orElseThrow(() -> new NewsRetrieverException("No guId element in:" + getEntry().getTitle()));
+                        orElseThrow(() -> new NewsRetrieverException("No guId element in:" + getEntry().getTitle())).replace(".html", "");
 
         Matcher matcher = UNIQUE_PATTERN.matcher(guId);
         if (!matcher.find())
@@ -54,7 +54,8 @@ public class ArticleEntry {
     }
 
     public String getContent() {
-        return getEntry().getDescription().getValue();
+        String content = getEntry().getDescription().getValue();
+        return content.substring(content.indexOf("</br>") + 5);
     }
 
     public URL getLink() throws MalformedURLException {

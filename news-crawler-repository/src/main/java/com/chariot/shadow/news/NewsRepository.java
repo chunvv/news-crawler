@@ -1,6 +1,8 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.file.FileInfrastructure;
+import com.chariot.shadow.news.cafef.CafefFileInfrastructure;
+import com.chariot.shadow.news.cafef.CafefNewsInfrastructure;
 import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.FeedNewsSourceRetriever;
 import com.chariot.shadow.news.common.NewsRequester;
@@ -13,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -32,7 +35,7 @@ public class NewsRepository {
         this.supplierType = supplierType;
         this.newsRequester = newsRequester;
         this.newsMapper = new NewsMapper(supplierType);
-        this.fileInfrastructure = new FileInfrastructure(supplierType.getCode());
+        this.fileInfrastructure = genereateFileInfrastructure();
         this.newsInfrastructure = new NewsInfrastructure();
     }
 
@@ -40,7 +43,7 @@ public class NewsRepository {
         FeedNewsSourceRetriever newsRetriever = generateNewsRetriever();
         List<ArticleEntry> newsEntities = newsRetriever != null ? newsRetriever.retrieve() : Collections.emptyList();
         newsEntities.forEach(entry -> fileInfrastructure.write(entry, workingDirectory));
-        return newsEntities.stream().map(entity -> newsMapper.map(entity)).collect(Collectors.toList());
+        return newsEntities.stream().filter(entity -> entity.getEntry() != null).map(entity -> newsMapper.map(entity)).collect(Collectors.toList());
     }
 
     public void store(List<News> newsList) {
@@ -53,6 +56,17 @@ public class NewsRepository {
                 return new SkyNewsInfrastructure(newsRequester);
             case IT_NEWS:
                 return new ITNewsInfrastructure(newsRequester);
+            case CAFEF_NEWS:
+                return new CafefNewsInfrastructure(newsRequester);
+            default:
+                return null;
+        }
+    }
+
+    private FileInfrastructure genereateFileInfrastructure() {
+        switch (supplierType) {
+            case CAFEF_NEWS:
+                return new CafefFileInfrastructure(supplierType.getCode());
             default:
                 return null;
         }
