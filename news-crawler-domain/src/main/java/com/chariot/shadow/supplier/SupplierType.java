@@ -14,7 +14,8 @@ public enum SupplierType {
 
     SKY_NEWS(1, "S", "Sky News"),
     IT_NEWS(2, "I", "IT News"),
-    VN_EXPRESS(3, "V", "VN Express");
+    VN_EXPRESS(3, "V", "VN Express"),
+    VTV_TECHNOLOGY(10, "V10-", "VTV News Technology");
 
     private int id;
     private String code;

@@ -4,6 +4,7 @@ import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;
+import com.sun.syndication.feed.synd.SyndEntryImpl;
 import com.sun.syndication.feed.synd.SyndFeed;
 import mockit.Expectations;
 import mockit.Injectable;
@@ -114,5 +115,12 @@ public class ArticleEntryTest {
         }};
 
         assertThat(news.getImage(), is("https://i-startup.vnecdn.net/2018/07/25/https-2F-2Fblogs-images-forbes-6479-7891-1532516954_180x108.jpg"));
+    }
+
+    @Test
+    public void test() {
+        SyndEntry entry = new SyndEntryImpl();
+        entry.setPublishedDate(new Date("![CDATA[ Sun, 29 Jul 2018 15:08:00 GMT+7 ]]"));
+        System.out.println(entry.getPublishedDate());
     }
 }

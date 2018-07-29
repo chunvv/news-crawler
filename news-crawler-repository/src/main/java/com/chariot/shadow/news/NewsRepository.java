@@ -1,13 +1,15 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.file.FileInfrastructure;
-import com.chariot.shadow.news.cafef.VNExpressfFileInfrastructure;
-import com.chariot.shadow.news.cafef.VNExpressfNewsInfrastructure;
+import com.chariot.shadow.news.vnexpress.VNExpressfFileInfrastructure;
+import com.chariot.shadow.news.vnexpress.VNExpressfNewsInfrastructure;
 import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.FeedNewsSourceRetriever;
 import com.chariot.shadow.news.common.NewsRequester;
 import com.chariot.shadow.news.itnews.ITNewsInfrastructure;
 import com.chariot.shadow.news.skynews.SkyNewsInfrastructure;
+import com.chariot.shadow.news.vtv.VtvTechnologyFileInfrastructure;
+import com.chariot.shadow.news.vtv.VtvTechnologyNewsInfrastructure;
 import com.chariot.shadow.supplier.SupplierType;
 import com.sun.syndication.io.FeedException;
 
@@ -57,6 +59,8 @@ public class NewsRepository {
                 return new ITNewsInfrastructure(newsRequester);
             case VN_EXPRESS:
                 return new VNExpressfNewsInfrastructure(newsRequester);
+            case VTV_TECHNOLOGY:
+                return new VtvTechnologyNewsInfrastructure(newsRequester);
             default:
                 return null;
         }
@@ -66,6 +70,8 @@ public class NewsRepository {
         switch (supplierType) {
             case VN_EXPRESS:
                 return new VNExpressfFileInfrastructure(supplierType.getCode());
+            case VTV_TECHNOLOGY:
+                return new VtvTechnologyFileInfrastructure(supplierType.getCode());
             default:
                 return null;
         }

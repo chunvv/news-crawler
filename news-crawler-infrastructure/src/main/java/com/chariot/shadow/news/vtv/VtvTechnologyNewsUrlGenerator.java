@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.cafef;
+package com.chariot.shadow.news.vtv;
 
 import com.chariot.shadow.news.UrlGenerator;
 
@@ -10,10 +10,10 @@ import java.net.URL;
  * 
  * Created by Trung Vu on 2017/05/23.
  */
-public class VNExpressfNewsUrlGenerator implements UrlGenerator {
+public class VtvTechnologyNewsUrlGenerator implements UrlGenerator {
 
     @Override
     public URL generate() throws MalformedURLException {
-        return new URL("https://vnexpress.net/rss/startup.rss");
+        return new URL("https://vtv.vn/cong-nghe.rss");
     }
 }

@@ -1,9 +1,10 @@
-package com.chariot.shadow.news.cafef;
+package com.chariot.shadow.news.vtv;
 
 import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.FeedNewsSourceRetriever;
 import com.chariot.shadow.news.common.NewsFeedFactory;
 import com.chariot.shadow.news.common.NewsRequester;
+import com.chariot.shadow.news.vnexpress.VNExpressfNewsUrlGenerator;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 
@@ -15,10 +16,10 @@ import java.util.stream.Collectors;
  * <p>
  * Created by Trung Vu on 2017/05/23.
  */
-public class VNExpressfNewsInfrastructure extends FeedNewsSourceRetriever {
+public class VtvTechnologyNewsInfrastructure extends FeedNewsSourceRetriever {
 
-    public VNExpressfNewsInfrastructure(NewsRequester newsRequester) {
-        super(new VNExpressfNewsUrlGenerator(), newsRequester);
+    public VtvTechnologyNewsInfrastructure(NewsRequester newsRequester) {
+        super(new VtvTechnologyNewsUrlGenerator(), newsRequester);
     }
 
     @Override
@@ -26,7 +27,7 @@ public class VNExpressfNewsInfrastructure extends FeedNewsSourceRetriever {
     public List<ArticleEntry> process(SyndFeed feed) {
         return (List<ArticleEntry>) feed.getEntries().
                 stream().
-                map(entry -> new ArticleEntry(NewsFeedFactory.createNewsFeed(feed), (SyndEntry) entry)).
+                map(entry -> new VtvTechnologyArticleEntry(NewsFeedFactory.createNewsFeed(feed), (SyndEntry) entry)).
                 collect(Collectors.toList());
     }
 }

@@ -1,4 +1,4 @@
-package com.chariot.shadow.news.cafef;
+package com.chariot.shadow.news.vnexpress;
 
 import com.chariot.shadow.file.FileInfrastructure;
 import com.chariot.shadow.news.common.NewsRetrieverException;
@@ -21,9 +21,9 @@ public class VNExpressfFileInfrastructure extends FileInfrastructure {
         Document doc = Jsoup.connect(link.toString()).get();
         Element content;
         if (link.getHost().endsWith("https://kinhdoanh.vnexpress.net/")) {
-            content = doc.select(".content_detail .fck_detail .width_common .block_ads_connect").first();
+            content = doc.select(".content_detail.fck_detail.width_common.block_ads_connect").first();
         } else {
-            content = doc.select(".width_common .fck_detail").first();
+            content = doc.select(".width_common.fck_detail").first();
         }
 
         if (content == null)

@@ -9,7 +9,8 @@ import java.util.stream.Stream;
 @Getter
 public enum TagType {
 
-    START_UP(1, "Startup");
+    START_UP(1, "Startup"),
+    TECHNOLOGY(10, "Technology");
 
     private int id;
     private String name;
@@ -19,6 +20,6 @@ public enum TagType {
     }
 
     public static TagType get(String name) {
-        return Stream.of(values()).filter(value -> value.name == name).findFirst().orElseThrow(IllegalArgumentException::new);
+        return Stream.of(values()).filter(value -> value.name.equals(name)).findFirst().orElseThrow(IllegalArgumentException::new);
     }
 }

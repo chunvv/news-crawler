@@ -2,7 +2,8 @@ package com.chariot.shadow.news.common;
 
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
-import lombok.Value;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,11 +18,12 @@ import java.util.regex.Pattern;
  * <p>
  * Created by Trung Vu on 2017/05/23.
  */
-@Value
+@AllArgsConstructor
+@Getter
 public class ArticleEntry {
 
     private static final Pattern UNIQUE_PATTERN = Pattern.compile("[^/-]*$");
-    private SyndFeed feed;
+    protected SyndFeed feed;
 
     public ArticleEntry(SyndFeed feed, SyndEntry entry) {
         this.feed = feed;
