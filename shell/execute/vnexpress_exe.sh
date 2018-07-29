@@ -39,6 +39,4 @@ echoSomething() {
 # Here's main
 echoSomething "The crawler's started in `date`"
 runJava /data/news/vnexpress 3 `date -v-7d +%Y%m%d` $TODAY
-exit_status=$?
 echoSomething "The crawler's finished at `date`"
-exit $exit_status
