@@ -11,30 +11,25 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class CafefFileInfrastructure extends FileInfrastructure {
+public class VNExpressfFileInfrastructure extends FileInfrastructure {
 
-    public CafefFileInfrastructure(String directoryPrefix) {
+    public VNExpressfFileInfrastructure(String directoryPrefix) {
         this.directoryPrefix = directoryPrefix;
     }
 
     protected void fetchData(File entryDir, URL link) throws NewsRetrieverException, IOException {
         Document doc = Jsoup.connect(link.toString()).get();
-        Element title, content;
+        Element content;
         if (link.getHost().endsWith("https://kinhdoanh.vnexpress.net/")) {
-            title = doc.select(".title_news_detail .mb10").first();
             content = doc.select(".content_detail .fck_detail .width_common .block_ads_connect").first();
         } else {
-            title = doc.select(".title_detail").first();
             content = doc.select(".width_common .fck_detail").first();
         }
 
-        if (title == null || content == null)
-            throw new NewsRetrieverException("Title or content is null!" + link);
+        if (content == null)
+            throw new NewsRetrieverException("Content is null!" + link);
 
         content.tagName("div");
-        Document newsDoc = Jsoup.parseBodyFragment(content.outerHtml());
-        newsDoc.head().appendElement("title").text(title.text());
-        newsDoc.select("html").attr("baseUri", doc.baseUri());
-        FileUtils.write(new File(entryDir, FILE_NAME), newsDoc.outerHtml(), "UTF-8");
+        FileUtils.write(new File(entryDir, FILE_NAME), content.toString(), "UTF-8");
     }
 }

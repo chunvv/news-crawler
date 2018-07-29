@@ -7,6 +7,7 @@ import mockit.*;
 import org.junit.Test;
 
 import java.io.File;
+import java.net.URL;
 
 /**
  * Created by Trung Vu on 2017/05/27.
@@ -24,12 +25,12 @@ public class FileInfrastructureTest {
                           @Mocked SyndFeedOutput output) throws Exception {
         File working = new File("/data/news");
         File directory = new File(working, "S1");
-        File entry = new File(directory, "article.rss");
+        URL link = new URL("http://google.com");
         
         new Expectations(fileInfrastructure) {{
             fileInfrastructure.determineNewsName(articleEntry); result = "S1";
-            articleEntry.getFeed(); result = feed;
-            new SyndFeedOutput().output(feed, entry);
+            articleEntry.getLink(); result = link;
+            fileInfrastructure.fetchData(directory, link);
         }};
         
         fileInfrastructure.write(articleEntry, working);

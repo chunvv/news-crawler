@@ -1,6 +1,7 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.supplier.Supplier;
+import com.chariot.shadow.tag.TagType;
 import lombok.Value;
 
 import java.util.Date;
@@ -18,8 +19,9 @@ public class News {
     private Content content;
     private Link link;
     private PublicationDate publicationDate;
-
     private Supplier supplier;
+    private Image image;
+    private TagType tagType;
 
     public String getIdAsString() {
         return id.getNewsID();
@@ -43,5 +45,13 @@ public class News {
 
     public String getSupplierIdAsString() {
         return String.valueOf(supplier.getIdAsInt());
+    }
+
+    public String getImageAsString() {
+        return image.getImage();
+    }
+
+    public String getTagAsString() {
+        return tagType.getName();
     }
 }

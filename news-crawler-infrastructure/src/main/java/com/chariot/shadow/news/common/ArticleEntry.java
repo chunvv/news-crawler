@@ -65,4 +65,12 @@ public class ArticleEntry {
     public Date getPublishedDate() {
         return getEntry().getPublishedDate();
     }
+
+    public String getImage() {
+        return getEntry().getDescription().getValue().split("\"")[3];
+    }
+
+    public String getTag() {
+        return "Startup";
+    }
 }

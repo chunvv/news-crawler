@@ -2,6 +2,7 @@ package com.chariot.shadow.news;
 
 import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.supplier.*;
+import com.chariot.shadow.tag.TagType;
 import mockit.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -39,6 +40,8 @@ public class NewsMapperTest {
             entity.getContent(); result = "content";
             entity.getLink(); result = new URL("http://google.com");
             entity.getPublishedDate(); result = date;
+            entity.getImage(); result = "image";
+            entity.getTag(); result = "Startup";
         }};
 
         News actual = newsMapper.map(entity);
@@ -74,7 +77,9 @@ public class NewsMapperTest {
                         new SupplierID(1),
                         new SupplierCode("Code"),
                         new SupplierName("name")
-                )
+                ),
+                new Image("image"),
+                TagType.START_UP
         );
     }
 }

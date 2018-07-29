@@ -18,6 +18,6 @@ public class SupplierTypeTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void throwExceptionWhenGetSupplierByInvalidId() throws Exception {
-        SupplierType.get(3);
+        SupplierType.get(1000);
     }
 }

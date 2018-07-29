@@ -15,10 +15,10 @@ import java.util.stream.Collectors;
  * <p>
  * Created by Trung Vu on 2017/05/23.
  */
-public class CafefNewsInfrastructure extends FeedNewsSourceRetriever {
+public class VNExpressfNewsInfrastructure extends FeedNewsSourceRetriever {
 
-    public CafefNewsInfrastructure(NewsRequester newsRequester) {
-        super(new CafefNewsUrlGenerator(), newsRequester);
+    public VNExpressfNewsInfrastructure(NewsRequester newsRequester) {
+        super(new VNExpressfNewsUrlGenerator(), newsRequester);
     }
 
     @Override

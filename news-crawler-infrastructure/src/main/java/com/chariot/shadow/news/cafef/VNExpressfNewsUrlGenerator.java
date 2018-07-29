@@ -10,7 +10,7 @@ import java.net.URL;
  * 
  * Created by Trung Vu on 2017/05/23.
  */
-public class CafefNewsUrlGenerator implements UrlGenerator {
+public class VNExpressfNewsUrlGenerator implements UrlGenerator {
 
     @Override
     public URL generate() throws MalformedURLException {

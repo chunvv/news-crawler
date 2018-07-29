@@ -1,8 +1,8 @@
 package com.chariot.shadow.news;
 
 import com.chariot.shadow.file.FileInfrastructure;
-import com.chariot.shadow.news.cafef.CafefFileInfrastructure;
-import com.chariot.shadow.news.cafef.CafefNewsInfrastructure;
+import com.chariot.shadow.news.cafef.VNExpressfFileInfrastructure;
+import com.chariot.shadow.news.cafef.VNExpressfNewsInfrastructure;
 import com.chariot.shadow.news.common.ArticleEntry;
 import com.chariot.shadow.news.common.FeedNewsSourceRetriever;
 import com.chariot.shadow.news.common.NewsRequester;
@@ -15,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -56,8 +55,8 @@ public class NewsRepository {
                 return new SkyNewsInfrastructure(newsRequester);
             case IT_NEWS:
                 return new ITNewsInfrastructure(newsRequester);
-            case CAFEF_NEWS:
-                return new CafefNewsInfrastructure(newsRequester);
+            case VN_EXPRESS:
+                return new VNExpressfNewsInfrastructure(newsRequester);
             default:
                 return null;
         }
@@ -65,8 +64,8 @@ public class NewsRepository {
 
     private FileInfrastructure genereateFileInfrastructure() {
         switch (supplierType) {
-            case CAFEF_NEWS:
-                return new CafefFileInfrastructure(supplierType.getCode());
+            case VN_EXPRESS:
+                return new VNExpressfFileInfrastructure(supplierType.getCode());
             default:
                 return null;
         }

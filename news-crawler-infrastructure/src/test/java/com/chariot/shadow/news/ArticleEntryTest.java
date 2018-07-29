@@ -78,11 +78,10 @@ public class ArticleEntryTest {
     public void getContent(@Mocked SyndEntry mockedEntry, @Mocked SyndContent content) throws Exception {
         new Expectations(news) {{
             news.getEntry(); result = mockedEntry;
-            mockedEntry.getDescription(); result = content;
-            content.getValue(); result = "content";
+            mockedEntry.getDescription().getValue(); result = "<a href=\"http://startup.vnexpress.net/tin-tuc/y-tuong-moi/nhom-sinh-vien-harvard-bo-hoc-lap-startup-ket-ban-ngoai-doi-thuc-3783143.html\"><img width=130 height=100 src=\"https://i-startup.vnecdn.net/2018/07/25/https-2F-2Fblogs-images-forbes-6479-7891-1532516954_180x108.jpg\" ></a></br>Ba đồng sáng lập đều có thành tích xuất sắc tại Harvard quyết định bỏ học giữa chừng, thành lập nền tảng kết bạn trực tuyến.";
         }};
 
-        assertThat(news.getContent(), is("content"));
+        assertThat(news.getContent(), is("Ba đồng sáng lập đều có thành tích xuất sắc tại Harvard quyết định bỏ học giữa chừng, thành lập nền tảng kết bạn trực tuyến."));
     }
 
     @Test
@@ -104,5 +103,16 @@ public class ArticleEntryTest {
         }};
 
         assertThat(news.getPublishedDate(), is(date));
+    }
+
+    @Test
+    public void getImage(@Mocked SyndEntry mockedEntry) throws Exception {
+        String source = "<a href=\"http://startup.vnexpress.net/tin-tuc/y-tuong-moi/nhom-sinh-vien-harvard-bo-hoc-lap-startup-ket-ban-ngoai-doi-thuc-3783143.html\"><img width=130 height=100 src=\"https://i-startup.vnecdn.net/2018/07/25/https-2F-2Fblogs-images-forbes-6479-7891-1532516954_180x108.jpg\" ></a></br>Ba đồng sáng lập đều có thành tích xuất sắc tại Harvard quyết định bỏ học giữa chừng, thành lập nền tảng kết bạn trực tuyến.";
+        new Expectations(news) {{
+            news.getEntry(); result = mockedEntry;
+            mockedEntry.getDescription().getValue(); result = source;
+        }};
+
+        assertThat(news.getImage(), is("https://i-startup.vnecdn.net/2018/07/25/https-2F-2Fblogs-images-forbes-6479-7891-1532516954_180x108.jpg"));
     }
 }

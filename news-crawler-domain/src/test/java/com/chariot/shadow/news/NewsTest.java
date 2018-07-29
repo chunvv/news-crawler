@@ -4,6 +4,7 @@ import com.chariot.shadow.supplier.Supplier;
 import com.chariot.shadow.supplier.SupplierCode;
 import com.chariot.shadow.supplier.SupplierID;
 import com.chariot.shadow.supplier.SupplierName;
+import com.chariot.shadow.tag.TagType;
 import org.junit.Test;
 
 import java.net.MalformedURLException;
@@ -66,7 +67,9 @@ public class NewsTest {
                         new SupplierID(1),
                         new SupplierCode("Code"),
                         new SupplierName("name")
-                )
+                ),
+                new Image("image"),
+                TagType.get(1)
         );
     }
 }

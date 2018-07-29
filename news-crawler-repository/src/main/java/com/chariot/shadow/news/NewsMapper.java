@@ -5,6 +5,7 @@ import com.chariot.shadow.news.common.NewsRetrieverException;
 import com.chariot.shadow.news.factory.NewsFactory;
 import com.chariot.shadow.supplier.SupplierType;
 import com.chariot.shadow.supplier.factory.SupplierFactory;
+import com.chariot.shadow.tag.TagType;
 import lombok.Value;
 
 import java.net.MalformedURLException;
@@ -28,7 +29,9 @@ public class NewsMapper {
                     new Content(entity.getContent()),
                     new Link(entity.getLink()),
                     new PublicationDate(entity.getPublishedDate()),
-                    SupplierFactory.create(supplierType)
+                    SupplierFactory.create(supplierType),
+                    new Image(entity.getImage()),
+                    TagType.get(entity.getTag())
             );
         } catch (NewsRetrieverException | MalformedURLException e) {
             throw new RuntimeException();
@@ -42,6 +45,9 @@ public class NewsMapper {
         newsEntity.setTitle(news.getTitleAsString());
         newsEntity.setContent(news.getContentAsString());
         newsEntity.setLink(news.getLinkAsString());
+        newsEntity.setLink(news.getLinkAsString());
+        newsEntity.setImage(news.getImageAsString());
+        newsEntity.setTag(news.getTagAsString());
         newsEntity.setPublishDate(news.getPublicationDateAsDate());
         newsEntity.setRegistrationTimestamp(new Timestamp(System.currentTimeMillis()));
         return newsEntity;
