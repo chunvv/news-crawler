@@ -30,7 +30,7 @@ public class ArticleEntry {
         this.feed.setEntries(Arrays.asList(entry));
     }
 
-    private String generateUniqueFileName() throws NewsRetrieverException {
+    public String generateUniqueFileName() throws NewsRetrieverException {
         String guId =
                 Optional.
                         ofNullable(getEntry().getUri()).
