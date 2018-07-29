@@ -2,7 +2,7 @@
 
 CMDNAME=`basename $0`
 SHELL_FOLDER="/data/shell/shadow"
-WORKING_NEWS_FOLDER="/data/shadow/news"
+WORKING_NEWS_FOLDER="/data/news"
 EXECUTE_JAR_FOLDER="/data/java/shadow"
 LOG_FOLDER="/data/log/shadow"
 

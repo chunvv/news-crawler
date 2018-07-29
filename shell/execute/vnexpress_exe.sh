@@ -19,12 +19,9 @@ runJava() {
     local from_date=$3
     local to_date=$4
 
-    createFolder "$working_dir/$TODAY"
-    cleanFolder "$working_dir/$TODAY"
-
     cd $EXECUTE_JAR_FOLDER
     java -cp $CLASS_PATH com.chariot.shadow.NewsBootstrap $working_dir $supplier $from_date $to_date >>${LOG_FILE} 2>&1
-    
+
     checkError $? "Cannot run java!"
     return 1
 }
@@ -41,7 +38,7 @@ echoSomething() {
 
 # Here's main
 echoSomething "The crawler's started in `date`"
-runJava $WORKING_NEWS_FOLDER 1 `date -v-1d +%Y%m%d` $TODAY
+runJava /data/news/vnexpress 3 `date -v-7d +%Y%m%d` $TODAY
 exit_status=$?
 echoSomething "The crawler's finished at `date`"
 exit $exit_status
