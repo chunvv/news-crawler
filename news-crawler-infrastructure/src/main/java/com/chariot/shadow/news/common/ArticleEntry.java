@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 @Getter
 public class ArticleEntry {
 
-    private static final Pattern UNIQUE_PATTERN = Pattern.compile("[^/-]*$");
+    protected static final Pattern UNIQUE_PATTERN = Pattern.compile("[^/-]*$");
     protected SyndFeed feed;
 
     public ArticleEntry(SyndFeed feed, SyndEntry entry) {

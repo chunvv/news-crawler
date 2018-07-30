@@ -8,6 +8,10 @@ import com.chariot.shadow.news.common.FeedNewsSourceRetriever;
 import com.chariot.shadow.news.common.NewsRequester;
 import com.chariot.shadow.news.itnews.ITNewsInfrastructure;
 import com.chariot.shadow.news.skynews.SkyNewsInfrastructure;
+import com.chariot.shadow.news.vnexpress.business.VNExpressBusinessFileInfrastructure;
+import com.chariot.shadow.news.vnexpress.business.VNExpressBusinessNewsInfrastructure;
+import com.chariot.shadow.news.vnexpress.science.VNExpressScienceFileInfrastructure;
+import com.chariot.shadow.news.vnexpress.science.VNExpressScienceNewsInfrastructure;
 import com.chariot.shadow.news.vtv.VtvTechnologyFileInfrastructure;
 import com.chariot.shadow.news.vtv.VtvTechnologyNewsInfrastructure;
 import com.chariot.shadow.supplier.SupplierType;
@@ -59,6 +63,10 @@ public class NewsRepository {
                 return new ITNewsInfrastructure(newsRequester);
             case VN_EXPRESS:
                 return new VNExpressfNewsInfrastructure(newsRequester);
+            case VN_EXPRESS_BUSINESS:
+                return new VNExpressBusinessNewsInfrastructure(newsRequester);
+            case VN_EXPRESS_SCIENCE:
+                return new VNExpressScienceNewsInfrastructure(newsRequester);
             case VTV_TECHNOLOGY:
                 return new VtvTechnologyNewsInfrastructure(newsRequester);
             default:
@@ -70,6 +78,10 @@ public class NewsRepository {
         switch (supplierType) {
             case VN_EXPRESS:
                 return new VNExpressfFileInfrastructure(supplierType.getCode());
+            case VN_EXPRESS_BUSINESS:
+                return new VNExpressBusinessFileInfrastructure(supplierType.getCode());
+            case VN_EXPRESS_SCIENCE:
+                return new VNExpressScienceFileInfrastructure(supplierType.getCode());
             case VTV_TECHNOLOGY:
                 return new VtvTechnologyFileInfrastructure(supplierType.getCode());
             default:

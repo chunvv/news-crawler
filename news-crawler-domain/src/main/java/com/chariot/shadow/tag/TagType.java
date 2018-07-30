@@ -9,7 +9,9 @@ import java.util.stream.Stream;
 @Getter
 public enum TagType {
 
-    START_UP(1, "Startup"),
+    START_UP(3, "Startup"),
+    BUSINESS(4, "Business"),
+    SCIENCE(5, "Science"),
     TECHNOLOGY(10, "Technology");
 
     private int id;
